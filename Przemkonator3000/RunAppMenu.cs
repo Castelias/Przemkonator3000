@@ -12,9 +12,11 @@ namespace Przemkonator3000
     {
         private static readonly List<ServerStatus> _messageList = [];
         private static Timer? _timer;
+        private static Login? _login;
 
         public static void Run()
         {
+            _login = GetCredentials();
             _timer = new Timer(RunApp, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
 
             Console.WriteLine("Press [Enter] to exit the program...");
@@ -23,11 +25,15 @@ namespace Przemkonator3000
 
         private static async void RunApp(object state)
         {
-            await RunAppAsync();
-            CheckForStatusChange(_messageList);
+
+            if (_login != null)
+            {
+                await RunAppAsync(_login);
+                CheckForStatusChange(_messageList);
+            }
         }
 
-        private static async Task RunAppAsync()
+        private static async Task RunAppAsync(Login login)
         {
             Console.Clear();
             try
@@ -35,7 +41,7 @@ namespace Przemkonator3000
                 using (var imapClient = new ImapClient())
                 {
                     await imapClient.ConnectAsync(Settings.ImapHost, Settings.ImapPort, true);
-                    await imapClient.AuthenticateAsync("przemkonatorbox@op.pl", "kokos!23456");
+                    await imapClient.AuthenticateAsync(login.Username, login.Password);
 
                     var inbox = imapClient.Inbox;
                     await inbox.OpenAsync(FolderAccess.ReadWrite);
