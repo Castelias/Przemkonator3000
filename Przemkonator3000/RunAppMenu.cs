@@ -17,7 +17,6 @@ namespace Przemkonator3000
         {
             _timer = new Timer(RunApp, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
 
-            // Keep the application running
             Console.WriteLine("Press [Enter] to exit the program...");
             Console.ReadLine();
         }
