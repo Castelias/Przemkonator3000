@@ -2,11 +2,9 @@
 {
     public static class SettingsMenu
     {
-
-
         public static void Run()
         {
-            Menu menu = new Menu("Settings: ", [$"ImapPort: {Settings.Instance.ImapPort}", $"SmtpPort: {Settings.Instance.SmtpPort}", $"ImapHost: {Settings.Instance.ImapHost}", $"SmtpHost: {Settings.Instance.SmtpHost}","Default Settings", "Back"]);
+            Menu menu = new("Settings: ", [$"ImapPort: {Settings.Instance.ImapPort}", $"SmtpPort: {Settings.Instance.SmtpPort}", $"ImapHost: {Settings.Instance.ImapHost}", $"SmtpHost: {Settings.Instance.SmtpHost}","Default Settings", "Back"]);
 
             int selectedOption = menu.Run();
 

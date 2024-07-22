@@ -4,8 +4,8 @@ namespace Przemkonator3000
 {
     public sealed class Settings
     {
-        private static readonly Lazy<Settings> lazy = new Lazy<Settings>(() => new Settings());
-        private string _filePath;
+        private static readonly Lazy<Settings> lazy = new(() => new Settings());
+        private readonly string _filePath;
 
         public static Settings Instance { get { return lazy.Value; } }
 
