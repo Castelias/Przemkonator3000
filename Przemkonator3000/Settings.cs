@@ -49,7 +49,7 @@ namespace Przemkonator3000
         {
             ImapPort = 993;
             SmtpPort = 587;
-            ImapHost = "imap.poczta.onet.pl ";
+            ImapHost = "imap.poczta.onet.pl";
             SmtpHost = "smtp.poczta.onet.pl";
         }
 

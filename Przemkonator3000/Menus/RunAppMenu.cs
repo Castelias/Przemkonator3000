@@ -21,12 +21,14 @@ namespace Przemkonator3000.Menus
             _timer = new Timer(RunApp, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
 
             Console.WriteLine("Press [Enter] to exit the program...");
+            Console.ReadLine();
         }
 
         private static async void RunApp(object state)
         {
 
             if (_login != null)
+
             {
                 await RunAppAsync(_login);
                 CheckForStatusChange(_messageList);
