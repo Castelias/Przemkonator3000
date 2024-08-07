@@ -2,7 +2,6 @@
 {
     public static class MainMenu
     {
-
         public static void Run()
         {
             Menu menu = new("Choose an option:", ["Run", "Settings", "Exit"]);
@@ -25,9 +24,6 @@
                     Console.WriteLine("Invalid option");
                     break;
             }
-
         }
-
-        // !]S!vx5&khu]vAB
     }
 }
