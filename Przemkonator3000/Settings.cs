@@ -53,6 +53,14 @@ namespace Przemkonator3000
             SmtpHost = "smtp.poczta.onet.pl";
         }
 
+        public void LoadTestSettings()
+        {
+            ImapPort = 993;
+            SmtpPort = 587;
+            ImapHost = "imap.poczta.onet.pl";
+            SmtpHost = "smtp.poczta.onet.pl";
+        }
+
         private static string GetSettingsFilePath()
         {
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

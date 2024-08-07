@@ -4,7 +4,7 @@
     {
         public static void Run()
         {
-            Menu menu = new("Settings: ", [$"ImapPort: {Settings.Instance.ImapPort}", $"SmtpPort: {Settings.Instance.SmtpPort}", $"ImapHost: {Settings.Instance.ImapHost}", $"SmtpHost: {Settings.Instance.SmtpHost}","Default Settings", "Back"]);
+            Menu menu = new("Settings: ", [$"ImapPort: {Settings.Instance.ImapPort}", $"SmtpPort: {Settings.Instance.SmtpPort}", $"ImapHost: {Settings.Instance.ImapHost}", $"SmtpHost: {Settings.Instance.SmtpHost}","Default Settings","Test Settings", "Back"]);
 
             int selectedOption = menu.Run();
 
@@ -33,6 +33,12 @@
                     Run();
                     break;
                 case 5:
+                    Console.WriteLine($"Test Settings");
+                    Settings.Instance.LoadTestSettings();
+                    Settings.Instance.SaveSettings();
+                    Run();
+                    break;
+                case 6:
                     MainMenu.Run();
                     break;
 
